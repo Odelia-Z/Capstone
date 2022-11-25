@@ -9,7 +9,7 @@ from models import setup_db, Actor, Movie, db_drop_and_create_all
 load_dotenv()
 
 # ASSISTANT_TOKEN = os.getenv('ASSISTANT_TOKEN')
-DIRECTOR_TOKEN = os.getenv('DIRECTOR_TOKEN')
+DIRECTOR_TOKEN = os.environ('DIRECTOR_TOKEN')
 # PRODUCER_TOKEN = os.getenv('PRODUCER_TOKEN')
 
 
