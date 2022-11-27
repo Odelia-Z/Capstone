@@ -192,6 +192,12 @@ def create_app(test_config=None):
             })
         except Exception as e:
             abort(422, f"{str(e)}")
+            
+    # welcome page
+    @app.route('/', methods=['GET'])
+    def welcome_page():
+        return """Welcome to the FSND Capstone Casting Agency project!
+        To test the API please try the /actors and /movies endpoints."""
 
 
 

@@ -68,14 +68,113 @@ flask run --reload
 
 The `--reload` flag will detect file changes and restart the server automatically.
 
-## API Behaviour & RBAC controls
+## Roles
+
+Currently the project is live at:
+
+[https://capstone-casting-agency-zzy.herokuapp.com/](https://capstone-casting-agency-zzy.herokuapp.com/)
+
+Please use the API reference below to see how to interact with the running application.
+
+In order to reach certain endpoints you need to be authenticated as specific users.
+
+In order to sign up for an account please use the below form:
+
+[https://capstonefsnd.uk.auth0.com/authorize?audience=actor&response_type=token&client_id=vylNuoiHJ12bIhy6tiufsCByE8mRcZmT&redirect_uri=http://localhost:8080/login-results](https://capstonefsnd.uk.auth0.com/authorize?audience=actor&response_type=token&client_id=vylNuoiHJ12bIhy6tiufsCByE8mRcZmT&redirect_uri=http://localhost:8080/login-results)
+
+In order to get working tokens please use the following logins:
+
+* Casting Assistant:
+    - Username: castingassistant@email.com
+    - Password: password123
+* Casting Director:
+    - Username: castingdirector@email.com
+    - Password: password123
+* Executive Producer:
+    - Username: executiveproducer@email.com
+    - Password: password123
+
+
+
+## API Reference
 
 The application has the following API behaviours:
 
-* `get:movies`: return movies details (avialable for assistant role)
-* `get:actors`: return actor details (available for assistant role)
-* `post:movies`: insert a movie (available for executive producer)
-* `post:actors`: insert an actor (available for casting director)
+### `get:movies`
+Returns movies details (avialable for assistant role). Example response:
+
+```json
+{
+    "movies": [
+        {
+            "id": 1,
+            "release_date": "2002",
+            "title": "Catch Me If You Can"
+        }
+    ],
+    "success": true
+}
+```
+
+### `get:actors` 
+Returns actor details (available for assistant role). Example response:
+
+```json
+{
+    "actors": [
+        {
+            "age": "48",
+            "gender": "male",
+            "id": 1,
+            "name": "Leonardo Wilhelm DiCaprio"
+        }
+    ],
+    "success": true
+}
+```
+
+### `post:movies` 
+Inserts a movie (available for executive producer): Example POST JSON:
+
+```json
+{
+    "name": "Satomi Ishihara",
+    "age": 35,
+    "gender": "Female"
+}
+```
+
+Example response:
+
+```json
+{
+    "actor": {
+        "age": "35",
+        "gender": "Female",
+        "id": 2,
+        "name": "Satomi Ishihara"
+    },
+    "success": true
+}
+```
+
+
+### `post:actors`
+Inserts an actor (available for casting director): Example POST JSON:
+
+```json
+{
+    "title": "Heaven?",
+    "release_date": "2019"
+}
+```
+
+Example response:
+
+```json
+
+```
+
 * `patch:actors/<int:id>`: modify an actor with id `id` (available for casting director)
 * `patch:movies/<int:id>`: modify a movie with id `id` (available for executive producer)
 * `delete:actors/<int:id>`: delete an actor with id `id` (avialable for casting director)
