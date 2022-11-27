@@ -138,6 +138,29 @@ Inserts a movie (available for executive producer): Example POST JSON:
 
 ```json
 {
+    "title": "Heaven?",
+    "release_date": "2019"
+}
+```
+
+Example response:
+
+```json
+{
+    "movie": {
+        "id": 2,
+        "release_date": "2019",
+        "title": "Heaven?"
+    },
+    "success": true
+}
+```
+
+### `post:actors`
+Inserts an actor (available for casting director): Example POST JSON:
+
+```json
+{
     "name": "Satomi Ishihara",
     "age": 35,
     "gender": "Female"
@@ -158,24 +181,67 @@ Example response:
 }
 ```
 
-
-### `post:actors`
-Inserts an actor (available for casting director): Example POST JSON:
+### `patch:actors/<int:id>`
+Modify an actor with id `id` (available for casting director). Example PATCH JSON:
 
 ```json
 {
-    "title": "Heaven?",
-    "release_date": "2019"
+    "age": 35
+}
+```
+
+Example response:
+
+```bash
+{
+    "actor": {
+        "age": "35",
+        "gender": "Female",
+        "id": 2,
+        "name": "Satomi Ishihara"
+    },
+    "success": true
+}
+```
+
+### `patch:movies/<int:id>`
+Modify a movie with id `id` (available for executive producer). Example PATCH JSON.
+
+```json
+{
+    "release_date": 2019
 }
 ```
 
 Example response:
 
 ```json
-
+{
+    "movie": {
+        "id": 2,
+        "release_date": "2019",
+        "title": "Heaven?"
+    },
+    "success": true
+}
 ```
 
-* `patch:actors/<int:id>`: modify an actor with id `id` (available for casting director)
-* `patch:movies/<int:id>`: modify a movie with id `id` (available for executive producer)
-* `delete:actors/<int:id>`: delete an actor with id `id` (avialable for casting director)
-* `delete:movies/<int:id>`: delete a movie with id `id` (availabel for executive producer)
+### `delete:actors/<int:id>`
+Delete an actor with id `id` (avialable for casting director).Example response:
+
+```json
+{
+    "delete": 2,
+    "success": true
+}
+```
+
+### `delete:movies/<int:id>`
+Delete a movie with id `id` (avialable for executive producer). Example response:
+
+```json
+{
+    "delete": 2,
+    "success": true
+}
+```
