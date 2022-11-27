@@ -86,13 +86,13 @@ In order to get working tokens please use the following logins:
 
 * Casting Assistant:
     - Username: castingassistant@email.com
-    - Password: password123
+    - Password: password123!
 * Casting Director:
     - Username: castingdirector@email.com
-    - Password: password123
+    - Password: password123!
 * Executive Producer:
     - Username: executiveproducer@email.com
-    - Password: password123
+    - Password: password123!
 
 
 
