@@ -225,4 +225,4 @@ def create_app(test_config=None):
 if __name__ == "__main__":
     app = create_app()
     app.debug = True
-    app.run()
+    app.run(host='0.0.0.0', port=8080, debug=True)
