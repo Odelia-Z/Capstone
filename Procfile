@@ -1,1 +1,1 @@
-web: gunicorn --bind localhost:8080 app:app
+web: gunicorn --bind 0.0.0.0:5000 app:app
