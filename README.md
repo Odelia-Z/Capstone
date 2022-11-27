@@ -192,7 +192,7 @@ Modify an actor with id `id` (available for casting director). Example PATCH JSO
 
 Example response:
 
-```bash
+```json
 {
     "actor": {
         "age": "35",
